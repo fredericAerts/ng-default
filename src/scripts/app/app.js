@@ -1,0 +1,1 @@
+var defaultApp = angular.module('defaultApp', []);
