@@ -7,10 +7,18 @@
 	<!-- <link rel="icon" type="image/png" href="web/img/favicon.png"> -->
 	<link rel="stylesheet" type="text/css" href="/web/styles/style.min.css">
 </head>
-<body ng-app="defaultApp">
-	<div ng-controller="DefaultCtrl as defaultCtrl">
-		<h1>{{defaultCtrl.greeting}}</h1>
-	</div>
+<body ng-app="marijkeApp">
+
+	<header class="header">
+		<navbar></navbar>
+	</header>
+
+	<div class="ngView" autoscroll="true"></div>
+	
+	<footer class="footer">
+		footer
+	</footer>
+
 	<script type="text/javascript" src="/web/scripts/script.min.js"></script>
 </body>
 </html>

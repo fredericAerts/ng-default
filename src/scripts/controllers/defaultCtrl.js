@@ -1,4 +1,4 @@
-defaultApp.controller("DefaultCtrl", [function DefaultCtrl() {
+marijkeApp.controller("DefaultCtrl", [function DefaultCtrl() {
 	'use strict';
 
 	var defaultCtrl = this;

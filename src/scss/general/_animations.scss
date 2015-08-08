@@ -1,0 +1,12 @@
+.ngView {
+	min-height: 1000px;
+}
+
+.ngView.ng-enter {
+	transition: .3s linear opacity;
+	opacity: 0;
+}
+
+.ngView.ng-enter.ng-enter-active {
+ 	opacity: 1;
+}

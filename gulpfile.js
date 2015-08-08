@@ -23,6 +23,10 @@ var paths = {
       ],
       js: [
         'bower_components/angular/angular.js',
+        'bower_components/angular-route/angular-route.js',
+        'bower_components/angular-animate/angular-animate.js',
+        'bower_components/angular-picturefill/angular-picturefill.js',
+        'bower_components/picturefill/picturefill.js',
         'src/scripts/app/app.js',
         'src/scripts/app/app.routes.js',
         'src/scripts/app/app.analytics.js',
@@ -38,6 +42,12 @@ var paths = {
         'src/img/**/*'
       ]  
     },
+    angularTemplates: [
+      'src/scripts/templates/**/*.html'
+    ],
+    views: [
+      'views/**/*.html'
+    ], 
     vendor: {
       js: 'src/scripts/vendor/'
     },
@@ -49,7 +59,8 @@ var paths = {
   },
   livereload: [
     'web/styles/*.css', 
-    'web/scripts/*.js', 
+    'web/scripts/*.js',
+    'views/*',  
     'web/img/*', 
     '*.html'
   ],
@@ -163,6 +174,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest('web/img'));
 });
 
+//move templates
+gulp.task('moveTemplates', function(){
+  gulp.src(paths.src.angularTemplates)
+  .pipe(gulp.dest('web/scripts/templates'));
+});
 
 // clean web folder
 gulp.task('clean', function(cb) {
@@ -172,6 +188,8 @@ gulp.task('clean', function(cb) {
 gulp.task('watch', function() {
   // Watch .scss files
   gulp.watch(paths.src.all.scss, ['styles']);
+  // Watch templates
+  gulp.watch(paths.src.angularTemplates, ['moveTemplates']);
   // Watch .js files
   gulp.watch(paths.src.all.js, ['scripts']);
   // jsHint 
@@ -188,5 +206,5 @@ gulp.task('default', ['build'], function() {
 });
 
 gulp.task('build', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images');
+    gulp.start('moveTemplates', 'styles', 'scripts', 'images');
 });

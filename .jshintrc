@@ -85,6 +85,6 @@
     // Custom Globals
     "globals"       : {
         "angular": false,
-        "defaultApp": false
+        "marijkeApp": false
     }
 }

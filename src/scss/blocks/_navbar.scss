@@ -1,0 +1,178 @@
+.navbar {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1300px;
+	padding: 0 .6em;
+}	
+
+.navbar__brand, .navbar__link {
+	text-decoration: none;
+}
+
+.navbar__brand {
+	float: left;
+
+	padding: 1em .6em .8em;
+}
+
+.navbar__link {
+	position: relative;
+	
+	display: block;
+	padding: 1em 1.6em .8em;
+
+	@include user-select(none);
+
+	&:first-child {
+
+		&:after {
+			display: none;
+		}
+	}
+
+	// line above navlink on mobile
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 50%;
+
+		display: inline-block;
+		width: 50px;
+		margin-left: -25px;
+
+		border-bottom: 1px solid #eee;
+
+		content: "";
+
+		@media (min-width: $screen-xs-min) {
+			display: none;
+		}
+	}
+
+	@media (min-width: $screen-xs-min) {
+		display: inline-block;
+
+		padding-right: .6em;
+		padding-left: .6em;
+	}
+	
+
+	&.active {
+		color: $red;
+		font-weight: 700;
+	}
+}
+
+//mobile
+.navbar__links {
+	display: none;
+	float: right;
+
+	@media (min-width: $screen-xs-min) {
+		display: block;
+	}
+}
+
+.navbar-toggle {
+	float: right;
+
+	display: inline-block;
+	padding: 1em .6em .8em;
+
+	border-radius: 2px;
+
+	cursor: pointer;
+	@include user-select(none);
+
+	@include transition(.3s);
+
+	@media (min-width: $screen-xs-min) {
+		display: none;
+	}
+}
+
+.navbar-toggle--close {
+
+	& + .navbar__links {
+		position: absolute;
+		top: 100%;
+		right: .6em;
+
+		display: block;
+
+		text-align: center;
+
+		border-bottom: 1px solid #eee;
+		box-shadow: 0 2px 3px rgba(0,0,0,0.075);
+
+		background: $white;
+	}
+
+	& .navbar-toggle__lines {
+		background: transparent;
+
+		&:before, &:after{
+			top: 0;
+
+			width: 20px;
+
+			@include transform-origin(50% 50%);
+		}
+
+		// rotate the lines to form the x shape
+		&:before{
+			@include transform(rotate3d(0,0,1,45deg)); 
+		}
+		&:after{
+			@include transform(rotate3d(0,0,1,-45deg)); 
+		}
+	}
+}
+
+.navbar-toggle__cta {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.navbar-toggle__lines {  
+	position: relative; 
+	top: -1px;
+	vertical-align: middle;
+
+	//create middle line
+	display: inline-block;
+	width: 20px;
+	height: 1px;
+
+	border-radius: 2px; 
+
+	background: $black;
+
+	@include transition(.3s);
+
+	/*create the upper and lower lines as pseudo-elements of the middle line*/
+	&:before, &:after {
+		position: absolute;
+		left:0;
+
+		display: inline-block;
+		width: 20px;
+		height: 1px;
+
+		border-radius: 2px; 
+
+		background: $black;
+
+		content: '';
+
+		@include transition(.3s);
+		@include transform-origin(2px center);
+	}
+
+	&:before { 
+		top: 5px; 
+	}
+	&:after { 
+		top: -5px; 
+	}
+}
