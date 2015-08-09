@@ -1,12 +1,16 @@
-.ngView {
-	min-height: 1000px;
+.ngView.ng-leave {
+	@include transition(all .6s ease-in-out);
 }
 
 .ngView.ng-enter {
-	transition: .3s linear opacity;
-	opacity: 0;
+	@include transition(all .6s ease-in-out .6s);
 }
 
+.ngView.ng-enter,
+.ngView.ng-leave.ng-leave-active {
+  opacity:0;
+}
+.ngView.ng-leave,
 .ngView.ng-enter.ng-enter-active {
- 	opacity: 1;
+  opacity:1;
 }
