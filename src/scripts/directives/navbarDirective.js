@@ -2,6 +2,8 @@ marijkeApp.directive("navbar", ["TEMPLATES_ROOT", "$window", function(TEMPLATES_
 	return {
 		restrict: "E",
 		replace: true,
+		scope: {},
+		controller: "navbarCtrl",
 		link: function(scope) {
 			angular.element($window).bind('resize', function() {
 				scope.$apply("closeNav()");
