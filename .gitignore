@@ -1,7 +1,7 @@
-node_modules/
-bower_components/
+frontend/node_modules/
+frontend/bower_components/
+frontend/npm-debug.log
+frontend/todo.txt
+frontend/.DS_Store
 web/
-npm-debug.log
-src/npm-debug.log
-design/
 .DS_Store

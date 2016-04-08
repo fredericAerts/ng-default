@@ -1,0 +1,10 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+	color: $black;
+	font-family: $primaryFont;
+	font-size: 18px;
+	font-weight: 400;
+}

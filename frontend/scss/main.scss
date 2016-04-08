@@ -2,7 +2,6 @@
 	=============================== */
 @import	'vendor/bourbon',
 		'vendor/bourbon-vars',
-		'vendor/bootstrap',
 		'vendor/reset';
 
 /*	Helpers
@@ -14,13 +13,8 @@
 /*	General
 	=============================== */
 @import 'general/base',
+		'general/layout',
 		'general/animations';
 
-/*	Structures
+/*	Components
 	=============================== */
-@import 'structures/header',
-		'structures/footer';
-
-/*	Blocks
-	=============================== */
-@import 'blocks/navbar';
