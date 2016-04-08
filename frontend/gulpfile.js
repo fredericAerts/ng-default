@@ -24,8 +24,6 @@ var paths = {
               'bower_components/angular/angular.js',
               'bower_components/angular-ui-router/release/angular-ui-router.js',
               'bower_components/angular-animate/angular-animate.js',
-              'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
-              'bower_components/angular-google-maps/dist/angular-google-maps.js',
               'js/**/*.module.js',
               'js/**/*.js',
               '!js/**/*.spec.js' // exclude test files
