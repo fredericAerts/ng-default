@@ -4,24 +4,24 @@
     from a remote web service and you want to catch any
     exceptions from that service and react uniquely.
     ========================================================= */
-(function() {
-    angular
-        .module('ng-default')
-        .factory('exception', exception);
+(() => {
+  angular
+    .module('ng-default')
+    .factory('exception', exception);
 
-    exception.$inject = ['$log'];
+  exception.$inject = ['$log'];
 
-    function exception($log) {
-        var service = {
-            catcher: catcher
-        };
-        return service;
+  function exception($log) {
+    const service = {
+      catcher,
+    };
+    return service;
 
-        function catcher(message) {
-            return function(reason) {
-                // TODO: implement user friendly error messaging here
-                $log.log(message, reason);
-            };
-        }
+    function catcher(message) {
+      return (reason) => {
+        // TODO: implement user friendly error messaging here
+        $log.log(message, reason);
+      };
     }
+  }
 })();

@@ -1,24 +1,20 @@
-(function() {
-    'use strict';
+(() => {
+  angular
+    .module('ng-default')
+    .controller('ShellController', ShellController);
 
-    angular
-        .module('ng-default')
-        .controller('ShellController', ShellController);
+  ShellController.$inject = ['$log'];
 
-    ShellController.$inject = [];
+  function ShellController($log) {
+    const vm = this;
 
-    function ShellController() {
-        var vm = this;
+    activate();
 
-        activate();
-
-        ////////////////
-
-        function activate() {
-
-        }
-
-        /*  Functions
-            ================================================ */
+    function activate() {
+      $log.log(vm);
     }
+
+    /*  Functions
+        ================================================ */
+  }
 })();
