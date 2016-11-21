@@ -1,5 +1,4 @@
 frontend/node_modules/
-frontend/bower_components/
 frontend/npm-debug.log
 frontend/todo.txt
 frontend/.DS_Store

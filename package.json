@@ -1,0 +1,8 @@
+{
+  "name": "ng-default",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fredericJos/ng-default.git",
+  "author": "Frederic Aerts <info@fredericaerts.com>",
+  "license": "MIT"
+}

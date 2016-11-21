@@ -20,10 +20,10 @@ var paths = {
             'scss/**/*.scss'
         ],
         js: [
-              'bower_components/lodash/lodash.js',
-              'bower_components/angular/angular.js',
-              'bower_components/angular-ui-router/release/angular-ui-router.js',
-              'bower_components/angular-animate/angular-animate.js',
+              'node_modules/lodash/lodash.js',
+              'node_modules/angular/angular.js',
+              'node_modules/angular-ui-router/release/angular-ui-router.js',
+              'node_modules/angular-animate/angular-animate.js',
               'js/**/*.module.js',
               'js/**/*.js',
               '!js/**/*.spec.js' // exclude test files
@@ -138,6 +138,10 @@ gulp.task('scripts', function() {
             handleError: errorHandler
         }))
         .pipe(plugins.concat('script.js'))
+        .pipe(plugins.babel({
+            presets: ['es2015'],
+            compact: true
+        }))
         .pipe(gulp.dest(paths.temp.js))
         .pipe(plugins.rename({suffix: '.min'}))
         // .pipe(plugins.uglify())
