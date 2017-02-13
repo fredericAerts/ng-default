@@ -1,7 +1,9 @@
 (() => {
   angular
-    .module('ng-default', [
-      'ui.router',
-      'ngAnimate',
+    .module('app', [
+      'app.core',
+      'app.widgets',
+      'app.layout',
+      'app.default-view',
     ]);
 })();

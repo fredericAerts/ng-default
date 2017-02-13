@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ng-default" ng-strict-di>
+<html ng-app="app" ng-strict-di>
 <head>
     <style>
         /* Since Angular has this but needs to load, this gives us the css early. */
@@ -10,12 +10,17 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <!-- <base href="/"> -->
+    <base href="/">
 
     <link rel="stylesheet" href="web/css/style.min.css" />
 </head>
 <body>
-    <div ng-include="'web/templates/layout/shell.html'"></div>
+    <div class="container">
+      <div ng-include="'web/templates/layout/shell.html'" class="fade-animation"></div>
+      <div class="splash-page" ng-show="false">
+        One moment please
+      </div>
+    </div>
     <script src="web/js/script.min.js"></script>
 </body>
 </html>

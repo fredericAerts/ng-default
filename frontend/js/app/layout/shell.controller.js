@@ -1,17 +1,17 @@
 (() => {
   angular
-    .module('ng-default')
+    .module('app.layout')
     .controller('ShellController', ShellController);
 
-  ShellController.$inject = ['$log'];
-
-  function ShellController($log) {
+  /* @ngInject */
+  function ShellController(logger) {
     const vm = this;
+    vm.helloShell = 'Hello Shell!';
 
     activate();
 
     function activate() {
-      $log.log(vm);
+      logger.debug('Actived Shell view');
     }
 
     /*  Functions

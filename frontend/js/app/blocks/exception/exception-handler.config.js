@@ -1,32 +1,29 @@
 (() => {
   angular
-    .module('ng-default')
-    .config(configure);
+    .module('blocks.exception')
+    .config(exceptionHandlerConfig);
 
-  configure.$inject = ['$provide'];
-
-  function configure($provide) {
+  /* @ngInject */
+  function exceptionHandlerConfig($provide) {
     // extend default exceptionHandler
     $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
 
-  extendExceptionHandler.$inject = ['$delegate', '$log'];
-
-  function extendExceptionHandler($delegate, $log) {
+  /* @ngInject */
+  function extendExceptionHandler($delegate, logger) {
     return (exception, cause) => {
       $delegate(exception, cause);
       const errorData = {
         exception,
         cause,
       };
-
-      $log.log(errorData);
       /**
         * Could add the error to a service's collection,
         * add errors to $rootScope, log errors to remote web server,
         * or log locally. Or throw hard. It is entirely up to you.
         * throw exception;
       */
+      logger.log('error data: ', errorData);
     };
   }
 })();

@@ -1,3 +1,10 @@
+/*  TODO:   - gulp-sourcemaps (see pluralsight advanced angular workflows)
+                -> enable js sourcemaps in chrome, enable search in content scripts
+            - tests and code coverage (see pluralsight advanced angular workflows)
+            - setup environment specific gulp task args (see pluralsight advanced angular workflows)
+
+    ========================================================================== */
+
 /* Setup Gulp
    ========================================================================== */
 var gulp = require('gulp');
@@ -20,13 +27,14 @@ var paths = {
             'scss/**/*.scss'
         ],
         js: [
-              'node_modules/lodash/lodash.js',
-              'node_modules/angular/angular.js',
-              'node_modules/angular-ui-router/release/angular-ui-router.js',
-              'node_modules/angular-animate/angular-animate.js',
-              'js/**/*.module.js',
-              'js/**/*.js',
-              '!js/**/*.spec.js' // exclude test files
+
+            'node_modules/angular/angular.js',
+            'node_modules/angular-resource/angular-resource.js',
+            'node_modules/angular-route/angular-route.js',
+            'node_modules/angular-animate/angular-animate.js',
+            'js/**/*.module.js',
+            'js/**/*.js',
+            '!js/**/*.spec.js' // exclude test files
         ],
         img: [
             'img/**/*'
@@ -137,10 +145,16 @@ gulp.task('scripts', function() {
         .pipe(plugins.plumber({
             handleError: errorHandler
         }))
-        .pipe(plugins.concat('script.js'))
+        .pipe(plugins.cached())
         .pipe(plugins.babel({
             presets: ['es2015'],
             compact: true
+        }))
+        .pipe(plugins.remember())
+        .pipe(plugins.concat('script.js'))
+        .pipe(plugins.ngAnnotate({
+          add: true,
+          single_quotes: true,
         }))
         .pipe(gulp.dest(paths.temp.js))
         .pipe(plugins.rename({suffix: '.min'}))

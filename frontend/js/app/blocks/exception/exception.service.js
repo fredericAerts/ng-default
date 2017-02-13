@@ -6,21 +6,19 @@
     ========================================================= */
 (() => {
   angular
-    .module('ng-default')
+    .module('blocks.exception')
     .factory('exception', exception);
 
-  exception.$inject = ['$log'];
-
-  function exception($log) {
+  /* @ngInject */
+  function exception(logger) {
     const service = {
-      catcher,
+      httpCatcher,
     };
     return service;
 
-    function catcher(message) {
+    function httpCatcher(message) {
       return (reason) => {
-        // TODO: implement user friendly error messaging here
-        $log.log(message, reason);
+        logger.debug(angular.toJson(reason), '\n', message);
       };
     }
   }
